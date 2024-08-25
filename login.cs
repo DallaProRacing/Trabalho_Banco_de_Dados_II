@@ -59,7 +59,7 @@ namespace Trabalho_Banco_De_Dados
 
 
                     cn.Open();
-                    string query = "SELECT * FROM tb_user WHERE usuario = @usuario AND senha = @senha";
+                    string query = "SELECT * FROM Users WHERE Usuario = @usuario AND Senha = @senha";
                     SqlCommand command = new SqlCommand(query, cn);
                     command.Parameters.AddWithValue("@usuario", txtUsuario.Text);
                     command.Parameters.AddWithValue("@senha", txtSenha.Text);

@@ -1,19 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Trabalho_Banco_De_Dados
 {
     public partial class loginCriarConta : Form
     {
-        int id = 0;
         public loginCriarConta()
         {
             InitializeComponent();
@@ -29,30 +21,57 @@ namespace Trabalho_Banco_De_Dados
             }
             return true;
         }
+
+        private bool UsuarioJaExiste(string usuario)
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(Conn.StrCon))
+                {
+                    cn.Open();
+                    var sql = "SELECT COUNT(*) FROM Users WHERE Usuario = @usuario";
+
+                    using (SqlCommand cmd = new SqlCommand(sql, cn))
+                    {
+                        cmd.Parameters.AddWithValue("@usuario", usuario);
+                        int count = (int)cmd.ExecuteScalar();
+                        return count > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao verificar usuário existente!\n\n" + ex.Message);
+                return false;
+            }
+        }
+
         private void SalvarUsuario()
         {
             if (CamposObrigatoriosPreenchidos())
             {
-
+                if (UsuarioJaExiste(txtUsuarioCadastro.Text))
+                {
+                    MessageBox.Show("Usuário já cadastrado. Escolha um nome de usuário diferente.", "Usuário existente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
                 try
                 {
                     using (SqlConnection cn = new SqlConnection(Conn.StrCon))
                     {
                         cn.Open();
-                        var sql = "";
 
-                        sql = "INSERT INTO tb_user(usuario,senha) VALUES (@usuario,@senha)";
-
-
-                        using (SqlCommand cmd = new SqlCommand(sql, cn))
+                        using (SqlCommand cmd = new SqlCommand("sp_InserirUser", cn))
                         {
+                            cmd.CommandType = System.Data.CommandType.StoredProcedure;
                             cmd.Parameters.AddWithValue("@usuario", txtUsuarioCadastro.Text);
-                            cmd.Parameters.AddWithValue("@senha", txtSenhaCadastro.Text);
+                            cmd.Parameters.AddWithValue("@senha", txtSenhaCadastro.Text); // Note: Senha deve ser armazenada de forma segura
                             cmd.ExecuteNonQuery();
                         }
                     }
 
+                    MessageBox.Show("Usuário cadastrado com sucesso!", "Cadastro realizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
@@ -60,7 +79,6 @@ namespace Trabalho_Banco_De_Dados
                 }
             }
         }
-
 
         private void btnSair_Click(object sender, EventArgs e)
         {
@@ -89,7 +107,7 @@ namespace Trabalho_Banco_De_Dados
 
         private void loginCriarConta_Load(object sender, EventArgs e)
         {
-
+            // Evento Load do formulário
         }
     }
 }

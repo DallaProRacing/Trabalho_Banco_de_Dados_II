@@ -1,28 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.ConstrainedExecution;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Trabalho_Banco_De_Dados
 {
     public partial class Veiculos : Form
     {
-        private string txtBuscar_Text;
-
         public Veiculos()
-        
         {
             InitializeComponent();
         }
-
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -40,62 +28,88 @@ namespace Trabalho_Banco_De_Dados
             }
             else if (txtbuscar.Text == "")
             {
-                MessageBox.Show("Campo buscar é Obrigatorio!");
+                MessageBox.Show("Campo buscar é Obrigatório!");
                 txtbuscar.Focus();
                 return false;
             }
             return true;
-
         }
+
         private void Buscar()
         {
+            try
             {
-               
-
-                try
+                using (SqlConnection cn = new SqlConnection(Conn.StrCon))
                 {
-                    using (SqlConnection cn = new SqlConnection(Conn.StrCon))
+                    cn.Open();
+
+                    // Monta o comando SQL para selecionar os veículos usando a função dbo.fn_FiltrarVeiculos
+                    string query = "SELECT * FROM dbo.fn_FiltrarVeiculos(" +
+                                   "@ID_Veiculo, @NomeVeiculo, @Modelo, @Ano, @Fabricacao, " +
+                                   "@Cor, @Combustivel, @Automatico, @Valor, @Situacao, @KM)";
+
+                    using (SqlCommand cmd = new SqlCommand(query, cn))
                     {
-                        cn.Open();
+                        // Configura os parâmetros padrão como NULL
+                        cmd.Parameters.AddWithValue("@ID_Veiculo", DBNull.Value);
+                        cmd.Parameters.AddWithValue("@NomeVeiculo", DBNull.Value);
+                        cmd.Parameters.AddWithValue("@Modelo", DBNull.Value);
+                        cmd.Parameters.AddWithValue("@Ano", DBNull.Value);
+                        cmd.Parameters.AddWithValue("@Fabricacao", DBNull.Value);
+                        cmd.Parameters.AddWithValue("@Cor", DBNull.Value);
+                        cmd.Parameters.AddWithValue("@Combustivel", DBNull.Value);
+                        cmd.Parameters.AddWithValue("@Automatico", DBNull.Value);
+                        cmd.Parameters.AddWithValue("@Valor", DBNull.Value);
+                        cmd.Parameters.AddWithValue("@Situacao", DBNull.Value);
+                        cmd.Parameters.AddWithValue("@KM", DBNull.Value);
 
-                        var sqlQuery = "SELECT * FROM tb_veiculos where ";
-
+                        // Adiciona o parâmetro correto baseado na seleção do ComboBox
                         switch (cbxBuscar.Text)
                         {
                             case "Marca":
-                                sqlQuery += "Nome like '%" + txtbuscar.Text + "%'";
+                                cmd.Parameters["@NomeVeiculo"].Value = txtbuscar.Text;
                                 break;
 
                             case "Modelo":
-                                sqlQuery += "Modelo like '%" + txtbuscar.Text + "%'";
+                                cmd.Parameters["@Modelo"].Value = txtbuscar.Text;
                                 break;
 
                             case "Ano":
-                                sqlQuery += "Ano >= " + txtbuscar.Text;
+                                cmd.Parameters["@Ano"].Value = txtbuscar.Text;
                                 break;
 
                             case "Fabricacao":
-                                sqlQuery += "Fabricacao >=" + txtbuscar.Text;
+                                cmd.Parameters["@Fabricacao"].Value = txtbuscar.Text;
                                 break;
 
-
                             case "Cor":
-                                sqlQuery += "Cor like '%" + txtbuscar.Text + "%'";
+                                cmd.Parameters["@Cor"].Value = txtbuscar.Text;
                                 break;
 
                             case "Valor":
-                                sqlQuery += "Valor >=" + txtbuscar.Text;
+                                // Converte o texto para decimal e aplica ao parâmetro Valor
+                                if (decimal.TryParse(txtbuscar.Text, out decimal valor))
+                                {
+                                    query += " AND Valor >= @Valor";
+                                    cmd.Parameters["@Valor"].Value = valor;
+                                }
+                                break;
+
+                            case "KM":
+                                // Converte o texto para decimal e aplica ao parâmetro KM
+                                if (decimal.TryParse(txtbuscar.Text, out decimal km))
+                                {
+                                    query += " AND KM >= @KM";
+                                    cmd.Parameters["@KM"].Value = km;
+                                }
                                 break;
 
                             case "Situacao":
-                                sqlQuery += "Situacao like '%" + txtbuscar.Text + "%'";
+                                cmd.Parameters["@Situacao"].Value = txtbuscar.Text;
                                 break;
-
                         }
-                        sqlQuery += "Order By Nome";
 
-
-                        using (SqlDataAdapter da = new SqlDataAdapter(sqlQuery, cn))
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                         {
                             using (DataTable dt = new DataTable())
                             {
@@ -103,68 +117,37 @@ namespace Trabalho_Banco_De_Dados
                                 dataGridView1.DataSource = dt;
                             }
                         }
-                       
                     }
                 }
-                catch (Exception ex)
-                {
-
-                    MessageBox.Show("Falha ao tentar conectar\n\n" + ex.Message);
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Falha ao tentar conectar\n\n" + ex.Message);
             }
         }
-        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
 
-        }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            
-            LoadData();
-        }
+
         private void LoadData()
         {
             using (SqlConnection cn = new SqlConnection(Conn.StrCon))
             {
                 cn.Open();
-                string query = "SELECT * FROM tb_veiculos";
+                string query = "SELECT * FROM vw_Veiculos";
 
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(query, cn);
-                SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
                 DataTable table = new DataTable();
                 dataAdapter.Fill(table);
 
-                BindingSource bindingSource = new BindingSource();
-                bindingSource.DataSource = table;
-
-                dataGridView1.DataSource = bindingSource;
+                dataGridView1.DataSource = table;
             }
-        }
-        private void txtBuscar_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-
         }
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
             FrmVeiculosAdicionar frm = new FrmVeiculosAdicionar(0);
             frm.ShowDialog();
+            LoadData(); // Recarregar os dados após adicionar
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -179,6 +162,7 @@ namespace Trabalho_Banco_De_Dados
                 var id = Convert.ToInt32(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value);
                 FrmVeiculosAdicionar frm = new FrmVeiculosAdicionar(id, true);
                 frm.ShowDialog();
+                LoadData(); // Recarregar os dados após exclusão
             }
         }
 
@@ -194,42 +178,28 @@ namespace Trabalho_Banco_De_Dados
                 var id = Convert.ToInt32(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value);
                 FrmVeiculosAdicionar frm = new FrmVeiculosAdicionar(id);
                 frm.ShowDialog();
+                LoadData(); // Recarregar os dados após alteração
             }
         }
 
-
-        private void cb_SelectedIndexChanged(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
-            
-        }
-
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cbxbuscar_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-        
-       
-
-       
-
-        private void statusStrip1_ItemClicked_1(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void toolStripContainer1_ContentPanel_Load(object sender, EventArgs e)
-        {
-
+            LoadData();
         }
 
         private void btnRecarregar_Click_1(object sender, EventArgs e)
         {
             LoadData();
         }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e) { }
+        private void label1_Click(object sender, EventArgs e) { }
+        private void textBox1_TextChanged(object sender, EventArgs e) { }
+        private void button1_Click_1(object sender, EventArgs e) { }
+        private void cb_SelectedIndexChanged(object sender, EventArgs e) { }
+        private void textBox1_TextChanged_1(object sender, EventArgs e) { }
+        private void cbxbuscar_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
+        private void statusStrip1_ItemClicked_1(object sender, ToolStripItemClickedEventArgs e) { }
+        private void toolStripContainer1_ContentPanel_Load(object sender, EventArgs e) { }
     }
 }

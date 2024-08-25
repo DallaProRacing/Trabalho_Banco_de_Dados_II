@@ -134,7 +134,8 @@
             "Fabricacao",
             "Cor",
             "Valor",
-            "Situacao"});
+            "Situacao",
+            "KM"});
             this.cbxBuscar.Location = new System.Drawing.Point(354, 12);
             this.cbxBuscar.Name = "cbxBuscar";
             this.cbxBuscar.Size = new System.Drawing.Size(118, 23);

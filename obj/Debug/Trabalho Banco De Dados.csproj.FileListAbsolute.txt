@@ -42,3 +42,25 @@ C:\Users\User\source\repos\Trabalho-Cshap\Trabalho Banco De Dados\obj\Debug\Trab
 C:\Users\User\source\repos\Trabalho-Cshap\Trabalho Banco De Dados\obj\Debug\Trabalho.A59F5B34.Up2Date
 C:\Users\User\source\repos\Trabalho-Cshap\Trabalho Banco De Dados\obj\Debug\Trabalho Banco De Dados.exe
 C:\Users\User\source\repos\Trabalho-Cshap\Trabalho Banco De Dados\obj\Debug\Trabalho Banco De Dados.pdb
+C:\Users\User\source\repos\Trabalho_Banco_de_Dados_II\obj\Debug\Trabalho Banco De Dados.csproj.AssemblyReference.cache
+C:\Users\User\source\repos\Trabalho_Banco_de_Dados_II\obj\Debug\Trabalho_Banco_De_Dados.Clientes.resources
+C:\Users\User\source\repos\Trabalho_Banco_de_Dados_II\obj\Debug\Trabalho_Banco_De_Dados.frmCliente.resources
+C:\Users\User\source\repos\Trabalho_Banco_de_Dados_II\obj\Debug\Trabalho_Banco_De_Dados.FrmResultados.resources
+C:\Users\User\source\repos\Trabalho_Banco_de_Dados_II\obj\Debug\Trabalho_Banco_De_Dados.frmVendas.resources
+C:\Users\User\source\repos\Trabalho_Banco_de_Dados_II\obj\Debug\Trabalho_Banco_De_Dados.frm_menu.resources
+C:\Users\User\source\repos\Trabalho_Banco_de_Dados_II\obj\Debug\Trabalho_Banco_De_Dados.login.resources
+C:\Users\User\source\repos\Trabalho_Banco_de_Dados_II\obj\Debug\Trabalho_Banco_De_Dados.loginCriarConta.resources
+C:\Users\User\source\repos\Trabalho_Banco_de_Dados_II\obj\Debug\Trabalho_Banco_De_Dados.Veiculos.resources
+C:\Users\User\source\repos\Trabalho_Banco_de_Dados_II\obj\Debug\Trabalho_Banco_De_Dados.FrmVeiculosAdicionar.resources
+C:\Users\User\source\repos\Trabalho_Banco_de_Dados_II\obj\Debug\Trabalho_Banco_De_Dados.Properties.Resources.resources
+C:\Users\User\source\repos\Trabalho_Banco_de_Dados_II\obj\Debug\Trabalho Banco De Dados.csproj.GenerateResource.cache
+C:\Users\User\source\repos\Trabalho_Banco_de_Dados_II\obj\Debug\Trabalho Banco De Dados.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\Trabalho_Banco_de_Dados_II\obj\Debug\Trabalho Banco De Dados.exe
+C:\Users\User\source\repos\Trabalho_Banco_de_Dados_II\obj\Debug\Trabalho Banco De Dados.pdb
+C:\Users\User\source\repos\Trabalho_Banco_de_Dados_II\bin\Debug\Trabalho Banco De Dados.exe.config
+C:\Users\User\source\repos\Trabalho_Banco_de_Dados_II\bin\Debug\Trabalho Banco De Dados.exe
+C:\Users\User\source\repos\Trabalho_Banco_de_Dados_II\bin\Debug\Trabalho Banco De Dados.pdb
+C:\Users\User\source\repos\Trabalho_Banco_de_Dados_II\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\User\source\repos\Trabalho_Banco_de_Dados_II\bin\Debug\itextsharp.dll
+C:\Users\User\source\repos\Trabalho_Banco_de_Dados_II\bin\Debug\itextsharp.xml
+C:\Users\User\source\repos\Trabalho_Banco_de_Dados_II\obj\Debug\Trabalho.A59F5B34.Up2Date

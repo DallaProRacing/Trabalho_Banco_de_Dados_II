@@ -53,6 +53,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label19 = new System.Windows.Forms.Label();
             this.cbxSituacao = new System.Windows.Forms.ComboBox();
+            this.txtKM = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -101,7 +103,7 @@
             this.label13.BackColor = System.Drawing.Color.AliceBlue;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.DarkBlue;
-            this.label13.Location = new System.Drawing.Point(461, 167);
+            this.label13.Location = new System.Drawing.Point(445, 167);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(109, 15);
             this.label13.TabIndex = 3;
@@ -131,7 +133,7 @@
             this.label15.Size = new System.Drawing.Size(74, 15);
             this.label15.TabIndex = 5;
             this.label15.Text = "Combustível";
-            this.label15.Click += new System.EventHandler(this.label15_Click);
+            
             // 
             // label17
             // 
@@ -165,7 +167,7 @@
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(285, 20);
             this.txtNome.TabIndex = 9;
-            this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
+            
             // 
             // txtModelo
             // 
@@ -175,7 +177,7 @@
             this.txtModelo.Name = "txtModelo";
             this.txtModelo.Size = new System.Drawing.Size(285, 20);
             this.txtModelo.TabIndex = 10;
-            this.txtModelo.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            
             // 
             // txtAno
             // 
@@ -183,7 +185,7 @@
             this.txtAno.Location = new System.Drawing.Point(354, 166);
             this.txtAno.MaxLength = 4;
             this.txtAno.Name = "txtAno";
-            this.txtAno.Size = new System.Drawing.Size(63, 20);
+            this.txtAno.Size = new System.Drawing.Size(84, 20);
             this.txtAno.TabIndex = 11;
             // 
             // txtCor
@@ -198,10 +200,10 @@
             // txtFabricacao
             // 
             this.txtFabricacao.ForeColor = System.Drawing.Color.DarkBlue;
-            this.txtFabricacao.Location = new System.Drawing.Point(576, 166);
+            this.txtFabricacao.Location = new System.Drawing.Point(560, 166);
             this.txtFabricacao.MaxLength = 4;
             this.txtFabricacao.Name = "txtFabricacao";
-            this.txtFabricacao.Size = new System.Drawing.Size(63, 20);
+            this.txtFabricacao.Size = new System.Drawing.Size(79, 20);
             this.txtFabricacao.TabIndex = 14;
             // 
             // txtValor
@@ -209,9 +211,9 @@
             this.txtValor.ForeColor = System.Drawing.Color.DarkBlue;
             this.txtValor.Location = new System.Drawing.Point(354, 245);
             this.txtValor.Name = "txtValor";
-            this.txtValor.Size = new System.Drawing.Size(63, 20);
+            this.txtValor.Size = new System.Drawing.Size(84, 20);
             this.txtValor.TabIndex = 15;
-            this.txtValor.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
+            
             // 
             // cbxAutomatico
             // 
@@ -266,7 +268,7 @@
             this.label16.Size = new System.Drawing.Size(303, 35);
             this.label16.TabIndex = 19;
             this.label16.Text = "Cadastro de veículos";
-            this.label16.Click += new System.EventHandler(this.label16_Click);
+            
             // 
             // btnExcluir
             // 
@@ -334,10 +336,32 @@
             this.cbxSituacao.Size = new System.Drawing.Size(84, 21);
             this.cbxSituacao.TabIndex = 25;
             // 
+            // txtKM
+            // 
+            this.txtKM.ForeColor = System.Drawing.Color.DarkBlue;
+            this.txtKM.Location = new System.Drawing.Point(560, 246);
+            this.txtKM.Name = "txtKM";
+            this.txtKM.Size = new System.Drawing.Size(79, 20);
+            this.txtKM.TabIndex = 27;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.BackColor = System.Drawing.Color.AliceBlue;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.DarkBlue;
+            this.label20.Location = new System.Drawing.Point(461, 246);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(93, 15);
+            this.label20.TabIndex = 26;
+            this.label20.Text = "Quilometragem";
+            // 
             // FrmVeiculosAdicionar
             // 
             this.BackColor = System.Drawing.Color.DarkBlue;
             this.ClientSize = new System.Drawing.Size(969, 435);
+            this.Controls.Add(this.txtKM);
+            this.Controls.Add(this.label20);
             this.Controls.Add(this.cbxSituacao);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.panel1);
@@ -418,5 +442,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.ComboBox cbxSituacao;
+        private System.Windows.Forms.TextBox txtKM;
+        private System.Windows.Forms.Label label20;
     }
 }

@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace Trabalho_Banco_De_Dados
 {
@@ -18,200 +12,106 @@ namespace Trabalho_Banco_De_Dados
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        
-
         private void ConsultarVeiculo()
         {
             if (CampoIdVeiculoObrigatorio())
             {
+                SqlConnection conn = new SqlConnection(Conn.StrCon);
+                SqlCommand comm = new SqlCommand("SELECT NomeVeiculo, Modelo, Ano, Fabricacao, Cor, Combustivel, Automatico, Valor, KM FROM Veiculos WHERE ID_Veiculo = @ID_Veiculo", conn);
 
-
-
-                SqlConnection conn;
-                SqlCommand comm;
-                SqlDataReader reader;
-
-                bool bIsOperationOK = true;
-
-
-                conn = new SqlConnection(Conn.StrCon);
-
-                comm = new SqlCommand("SELECT Nome,Modelo,Ano,Fabricacao,Cor,Combustivel, Automatico,Valor FROM tb_Veiculos WHERE Id = @Id", conn);
-
-                comm.Parameters.Add("@Id", System.Data.SqlDbType.Int);
-                comm.Parameters["@Id"].Value = Convert.ToInt32(txtIdVeiculo.Text);
-
-
+                comm.Parameters.Add("@ID_Veiculo", SqlDbType.Int);
+                comm.Parameters["@ID_Veiculo"].Value = Convert.ToInt32(txtIdVeiculo.Text);
 
                 try
                 {
-                    try
+                    conn.Open();
+                    SqlDataReader reader = comm.ExecuteReader();
+                    if (reader.Read())
                     {
-
-                        conn.Open();
-                    }
-                    catch (Exception error)
-                    {
-                        bIsOperationOK = false;
-                        MessageBox.Show(error.Message, "Erro ao tentar abrir a conexao com o BD",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    try
-                    {
-                        reader = comm.ExecuteReader();
-                        if (reader.Read())
-                        {
-                            txtNome.Text = reader["Nome"].ToString();
-                            txtModelo.Text = reader["Modelo"].ToString();
-                            txtAno.Text = reader["Ano"].ToString();
-                            txtFabricacao.Text = reader["Fabricacao"].ToString();
-                            txtCor.Text = reader["Cor"].ToString();
-                            txtCombustivel.Text = reader["Combustivel"].ToString();
-                            txtAno.Text = reader["Ano"].ToString();
-                            txtAutomatico.Text = reader["Automatico"].ToString();
-                            txtValor.Text = reader["Valor"].ToString();
-                        }
-
-
-                    }
-                    catch (Exception error)
-                    {
-                        bIsOperationOK = false;
-                        MessageBox.Show(error.Message, "Erro ao tentar abrir a conexao com o BD",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtNome.Text = reader["NomeVeiculo"].ToString();
+                        txtModelo.Text = reader["Modelo"].ToString();
+                        txtAno.Text = reader["Ano"].ToString();
+                        txtFabricacao.Text = reader["Fabricacao"].ToString();
+                        txtCor.Text = reader["Cor"].ToString();
+                        txtCombustivel.Text = reader["Combustivel"].ToString();
+                        txtAutomatico.Text = reader["Automatico"].ToString();
+                        txtValor.Text = reader["Valor"].ToString();
+                        txtKM.Text = reader["KM"].ToString();
                     }
                 }
-                catch
+                catch (Exception error)
                 {
-
-
+                    MessageBox.Show(error.Message, "Erro ao tentar abrir a conexão com o BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
-                    //Fecha a conexão
                     conn.Close();
-
-
                 }
             }
         }
-
-       
-        
 
         private void ConsultarCliente()
         {
             if (CampoIdClienteObrigatorio())
             {
+                SqlConnection conn = new SqlConnection(Conn.StrCon);
+                SqlCommand comm = new SqlCommand("SELECT NomeCli, CPF, Altura, Contato FROM Clientes WHERE ID_Cliente = @ID_Cliente", conn);
 
-            
-            SqlConnection conn;
-            SqlCommand comm;
-            SqlDataReader reader;
-
-            bool bIsOperationOK = true;
-
-
-            conn = new SqlConnection(Conn.StrCon);
-
-            comm = new SqlCommand("SELECT NomeCli,CPF,Altura,Contato FROM Clientes WHERE ID_Cliente = @ID_Cliente", conn);
-
-            comm.Parameters.Add("@ID_Cliente", System.Data.SqlDbType.Int);
-            comm.Parameters["@ID_Cliente"].Value = Convert.ToInt32(txtIdCliente.Text);
-
-
+                comm.Parameters.Add("@ID_Cliente", SqlDbType.Int);
+                comm.Parameters["@ID_Cliente"].Value = Convert.ToInt32(txtIdCliente.Text);
 
                 try
                 {
-                    try
+                    conn.Open();
+                    SqlDataReader reader = comm.ExecuteReader();
+                    if (reader.Read())
                     {
-
-                        conn.Open();
-                    }
-                    catch (Exception error)
-                    {
-                        bIsOperationOK = false;
-                        MessageBox.Show(error.Message, "Erro ao tentar abrir a conexao com o BD",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    try
-                    {
-                        reader = comm.ExecuteReader();
-                        if (reader.Read())
-                        {
-                            txtNomeCli.Text = reader["NomeCli"].ToString();                          
-                            mtxCPF.Text = reader["CPF"].ToString();
-                            txtAltura.Text = reader["Altura"].ToString();
-                            mtxPhone.Text = reader["Contato"].ToString();
-
-                        }
-
-
-                    }
-                    catch (Exception error)
-                    {
-                        bIsOperationOK = false;
-                        MessageBox.Show(error.Message, "Erro ao tentar abrir a conexao com o BD",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtNomeCli.Text = reader["NomeCli"].ToString();
+                        mtxCPF.Text = reader["CPF"].ToString();
+                        txtAltura.Text = reader["Altura"].ToString();
+                        mtxPhone.Text = reader["Contato"].ToString();
                     }
                 }
-                catch
+                catch (Exception error)
                 {
-
-
+                    MessageBox.Show(error.Message, "Erro ao tentar abrir a conexão com o BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
-                    //Fecha a conexão
                     conn.Close();
-
                 }
             }
-
         }
 
         private void btnConsultarVeiculo_Click(object sender, EventArgs e)
         {
-
             ConsultarVeiculo();
         }
-        private void btnConsultarCliente_Click(object sender, EventArgs e)
-    {
-            
-                ConsultarCliente();
-    }
 
+        private void btnConsultarCliente_Click(object sender, EventArgs e)
+        {
+            ConsultarCliente();
+        }
 
         private bool CampoIdVeiculoObrigatorio()
         {
             if (string.IsNullOrWhiteSpace(txtIdVeiculo.Text))
-
-
             {
                 MessageBox.Show("Por favor, preencha o campo obrigatório.", "Campo obrigatório", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
-
             return true;
         }
 
         private bool CampoIdClienteObrigatorio()
         {
             if (string.IsNullOrWhiteSpace(txtIdCliente.Text))
-
-
             {
                 MessageBox.Show("Por favor, preencha o campo obrigatório.", "Campo obrigatório", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             return true;
         }
-
 
         private bool CamposObrigatoriosPreenchidos()
         {
@@ -223,13 +123,12 @@ namespace Trabalho_Banco_De_Dados
                 string.IsNullOrWhiteSpace(txtValor.Text) ||
                 string.IsNullOrWhiteSpace(txtAutomatico.Text) ||
                 string.IsNullOrWhiteSpace(txtCombustivel.Text) ||
-                string.IsNullOrWhiteSpace(txtValor.Text) ||
-                string.IsNullOrWhiteSpace(txtNomeCli.Text) ||               
+                string.IsNullOrWhiteSpace(txtNomeCli.Text) ||
                 string.IsNullOrWhiteSpace(mtxCPF.Text) ||
                 string.IsNullOrWhiteSpace(txtAltura.Text) ||
                 string.IsNullOrWhiteSpace(dtpVenda.Text) ||
+                string.IsNullOrWhiteSpace(txtDesconto.Text) ||
                 string.IsNullOrWhiteSpace(mtxPhone.Text))
-
             {
                 MessageBox.Show("Por favor, preencha todos os campos.", "Campo obrigatório", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
@@ -242,48 +141,25 @@ namespace Trabalho_Banco_De_Dados
             if (CamposObrigatoriosPreenchidos())
             {
                 SqlConnection conn = new SqlConnection(Conn.StrCon);
-                SqlCommand commInsert = new SqlCommand();
-                SqlCommand commUpdate = new SqlCommand();
+                SqlCommand commInsert = new SqlCommand("sp_InserirVenda", conn);
+                commInsert.CommandType = CommandType.StoredProcedure;
+
+                commInsert.Parameters.Add("@ID_Veiculo", SqlDbType.Int).Value = Convert.ToInt32(txtIdVeiculo.Text);
+                commInsert.Parameters.Add("@ID_Cliente", SqlDbType.Int).Value = Convert.ToInt32(txtIdCliente.Text);
+                commInsert.Parameters.Add("@DataVenda", SqlDbType.Date).Value = Convert.ToDateTime(dtpVenda.Text);
+                commInsert.Parameters.Add("@Valor", SqlDbType.Decimal).Value = Convert.ToDecimal(txtValor.Text);
+                commInsert.Parameters.Add("@Desconto", SqlDbType.Decimal).Value = Convert.ToDecimal(txtDesconto.Text);
 
                 try
                 {
                     conn.Open();
-
-                    SqlTransaction transaction = conn.BeginTransaction();
-
-                    commInsert = new SqlCommand("INSERT INTO Vendas (Id_Veiculo, Nome, Modelo, Ano, Fabricacao, Cor, Combustivel, Automatico, Valor, ID_Cliente, NomeCli, CPF, Altura, Contato, DataVenda) " +
-                        "VALUES (@Id_Veiculo, @Nome, @Modelo, @Ano, @Fabricacao, @Cor, @Combustivel, @Automatico, @Valor, @ID_Cliente, @NomeCli, @CPF, @Altura, @Contato, @DataVenda)", conn, transaction);
-
-                    commInsert.Parameters.Add("@Id_Veiculo", SqlDbType.NVarChar).Value = txtIdVeiculo.Text;
-                    commInsert.Parameters.Add("@Nome", SqlDbType.NVarChar).Value = txtNome.Text;
-                    commInsert.Parameters.Add("@Modelo", SqlDbType.NVarChar).Value = txtModelo.Text;
-                    commInsert.Parameters.Add("@Ano", SqlDbType.Int).Value = Convert.ToInt32(txtAno.Text);
-                    commInsert.Parameters.Add("@Fabricacao", SqlDbType.Int).Value = Convert.ToInt32(txtFabricacao.Text);
-                    commInsert.Parameters.Add("@Cor", SqlDbType.NVarChar).Value = txtCor.Text;
-                    commInsert.Parameters.Add("@Combustivel", SqlDbType.NVarChar).Value = txtCombustivel.Text;
-                    commInsert.Parameters.Add("@Automatico", SqlDbType.Bit).Value = Convert.ToBoolean(txtAutomatico.Text);
-                    commInsert.Parameters.Add("@Valor", SqlDbType.Decimal).Value = Convert.ToDecimal(txtValor.Text);
-                    commInsert.Parameters.Add("@ID_Cliente", SqlDbType.Int).Value = Convert.ToInt32(txtIdCliente.Text);
-                    commInsert.Parameters.Add("@NomeCli", SqlDbType.NVarChar).Value = txtNomeCli.Text;
-                    commInsert.Parameters.Add("@CPF", SqlDbType.NVarChar).Value = mtxCPF.Text;
-                    commInsert.Parameters.Add("@Altura", SqlDbType.Decimal).Value = Convert.ToDecimal(txtAltura.Text);
-                    commInsert.Parameters.Add("@Contato", SqlDbType.NVarChar).Value = mtxPhone.Text;
-                    commInsert.Parameters.Add("@DataVenda", SqlDbType.NVarChar).Value = dtpVenda.Text;
-
                     commInsert.ExecuteNonQuery();
-
-                    commUpdate = new SqlCommand("UPDATE tb_Veiculos SET Situacao = 'Vendido' WHERE Id = @Id", conn, transaction);
-                    commUpdate.Parameters.Add("@Id", SqlDbType.Int).Value = Convert.ToInt32(txtIdVeiculo.Text);
-                    commUpdate.ExecuteNonQuery();
-
-                    transaction.Commit();
-
-                    MessageBox.Show("Venda registrada com sucesso!", "Registro de Venda", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                    MessageBox.Show("Venda realizada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LimparCampos(); // Limpar os campos após a venda
                 }
-                catch (Exception ex)
+                catch (Exception error)
                 {
-                    MessageBox.Show("Erro ao registrar a venda: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(error.Message, "Erro ao tentar realizar a venda", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
@@ -292,63 +168,7 @@ namespace Trabalho_Banco_De_Dados
             }
         }
 
-        private void btnRegistrarVenda_Click(object sender, EventArgs e)
-        {
-            VenderVeiculo();           
-            
-            
-        }
-
-
-        private void LoadDataVeiculos()
-        {
-            using (SqlConnection cn = new SqlConnection(Conn.StrCon))
-            {
-                cn.Open();
-                // Alterando a consulta SQL para filtrar apenas veículos "À venda"
-                string query = "SELECT * FROM tb_veiculos WHERE Situacao = 'À venda'";
-
-                SqlDataAdapter dataAdapter = new SqlDataAdapter(query, cn);
-                SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
-                DataTable table = new DataTable();
-                dataAdapter.Fill(table);
-
-                BindingSource bindingSource = new BindingSource();
-                bindingSource.DataSource = table;
-
-                dataGridView5.DataSource = bindingSource;
-            }
-        }
-        private void LoadDataClientes()
-        {
-            using (SqlConnection cn = new SqlConnection(Conn.StrCon))
-            {
-                cn.Open();
-                string query = "SELECT * FROM Clientes";
-
-                SqlDataAdapter dataAdapter = new SqlDataAdapter(query, cn);
-                SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
-                DataTable table = new DataTable();
-                dataAdapter.Fill(table);
-
-                BindingSource bindingSource = new BindingSource();
-                bindingSource.DataSource = table;
-
-                dataGridView5.DataSource = bindingSource;
-            }
-        }
-
-        private void btnVerificarVeiculo_Click(object sender, EventArgs e)
-        {
-            LoadDataVeiculos();
-        }
-
-        private void btnVerificarCliente_Click(object sender, EventArgs e)
-        {
-            LoadDataClientes();
-        }
-
-        private void LimparForm()
+        private void LimparCampos()
         {
             txtIdVeiculo.Clear();
             txtNome.Clear();
@@ -359,24 +179,43 @@ namespace Trabalho_Banco_De_Dados
             txtCombustivel.Clear();
             txtAutomatico.Clear();
             txtValor.Clear();
-            txtIdCliente.Clear();            
+            txtKM.Clear();
+            txtIdCliente.Clear();
             txtNomeCli.Clear();
-            txtAltura.Clear();
             mtxCPF.Clear();
+            txtAltura.Clear();
             mtxPhone.Clear();
-            
-
-
-
-
-
+            dtpVenda.Value = DateTime.Now;
+            txtDesconto.Clear();
         }
+
+       
+
         private void btcLimparCampos_Click(object sender, EventArgs e)
         {
-            LimparForm();
+            LimparCampos();
         }
 
         private void frmVendas_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView5_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+        }
+
+        private void btnRegistrarVenda_Click(object sender, EventArgs e)
+        {
+            VenderVeiculo();
+        }
+
+        private void btnVerificarVeiculo_Click(object sender, EventArgs e)
+        {
+            ConsultarVeiculo();
+        }
+
+        private void btnVerificarCliente_Click(object sender, EventArgs e)
         {
 
         }

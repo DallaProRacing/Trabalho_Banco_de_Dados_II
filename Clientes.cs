@@ -38,51 +38,60 @@ namespace Trabalho_Banco_De_Dados
 
         private void Buscar()
         {
-            
-
             try
             {
                 using (SqlConnection cn2 = new SqlConnection(Conn.StrCon))
                 {
                     cn2.Open();
 
-                    var sqlQuery = "SELECT * FROM Clientes where ";
+                    // Variáveis para armazenar os valores de busca
+                    int? idCliente = null;
+                    string nomeCli = null;
+                    string cpf = null;
+                    int? altura = null;
+                    string contato = null;
 
+                    // Verifica qual campo está sendo usado para a busca e atribui o valor correspondente
                     switch (cbxBuscarC.Text)
                     {
+                        case "ID_Cliente":
+                            idCliente = string.IsNullOrEmpty(txtbuscarC.Text) ? (int?)null : int.Parse(txtbuscarC.Text);
+                            break;
                         case "NomeCli":
-                            sqlQuery += "NomeCli like '%" + txtbuscarC.Text + "%'";
+                            nomeCli = txtbuscarC.Text;
                             break;
-
-                        case "Idade":
-                            sqlQuery += "Idade  like " + txtbuscarC.Text ;
-                            break;
-
                         case "CPF":
-                            sqlQuery += "CPF like '%" + txtbuscarC.Text + "%'";
+                            cpf = txtbuscarC.Text;
                             break;
-
                         case "Altura":
-                            sqlQuery += "Altura like " + txtbuscarC.Text;
+                            altura = string.IsNullOrEmpty(txtbuscarC.Text) ? (int?)null : int.Parse(txtbuscarC.Text);
                             break;
-
                         case "Contato":
-                            sqlQuery += "Contato like '%" + txtbuscarC.Text + "%'";
+                            contato = txtbuscarC.Text;
                             break;
-
                     }
-                    sqlQuery += "Order By NomeCli";
 
+                    // Consulta usando a função filtradora
+                    var sqlQuery = "SELECT * FROM dbo.fn_FiltrarClientes(@ID_Cliente, @NomeCli, @CPF, @Altura, @Contato)";
 
-                    using (SqlDataAdapter da2 = new SqlDataAdapter(sqlQuery, cn2))
+                    using (SqlCommand cmd = new SqlCommand(sqlQuery, cn2))
                     {
-                        using (DataTable dt2 = new DataTable())
+                        // Define os parâmetros com os valores de busca
+                        cmd.Parameters.AddWithValue("@ID_Cliente", idCliente.HasValue ? (object)idCliente.Value : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@NomeCli", (object)nomeCli ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@CPF", (object)cpf ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@Altura", altura.HasValue ? (object)altura.Value : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@Contato", (object)contato ?? DBNull.Value);
+
+                        using (SqlDataAdapter da2 = new SqlDataAdapter(cmd))
                         {
-                            da2.Fill(dt2);
-                            dataGridView2.DataSource = dt2;
+                            using (DataTable dt2 = new DataTable())
+                            {
+                                da2.Fill(dt2);
+                                dataGridView2.DataSource = dt2;
+                            }
                         }
                     }
-                    
                 }
             }
             catch (Exception ex)
@@ -90,6 +99,7 @@ namespace Trabalho_Banco_De_Dados
                 MessageBox.Show("Falha ao tentar conectar\n\n" + ex.Message);
             }
         }
+
 
         private void LoadData()
         {
@@ -119,6 +129,7 @@ namespace Trabalho_Banco_De_Dados
         {
             frmCliente novocliente = new frmCliente(0);
             novocliente.ShowDialog();
+            LoadData();
         }
 
         private void btnAlterarC_Click(object sender, EventArgs e)
@@ -134,6 +145,7 @@ namespace Trabalho_Banco_De_Dados
             {
                 MessageBox.Show("Selecione um cliente para alterar.");
             }
+            LoadData();
         }
 
         private void btnRecarregarC_Click(object sender, EventArgs e)
@@ -150,6 +162,11 @@ namespace Trabalho_Banco_De_Dados
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             LoadData();
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
  }

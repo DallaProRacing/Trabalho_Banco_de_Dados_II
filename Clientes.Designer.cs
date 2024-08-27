@@ -59,7 +59,7 @@
             this.dataGridView2.Location = new System.Drawing.Point(195, 41);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.Size = new System.Drawing.Size(569, 340);
+            this.dataGridView2.Size = new System.Drawing.Size(559, 340);
             this.dataGridView2.TabIndex = 16;
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
@@ -78,9 +78,9 @@
             // btnBuscarC
             // 
             this.btnBuscarC.ForeColor = System.Drawing.Color.DarkBlue;
-            this.btnBuscarC.Location = new System.Drawing.Point(579, 12);
+            this.btnBuscarC.Location = new System.Drawing.Point(475, 12);
             this.btnBuscarC.Name = "btnBuscarC";
-            this.btnBuscarC.Size = new System.Drawing.Size(118, 23);
+            this.btnBuscarC.Size = new System.Drawing.Size(76, 23);
             this.btnBuscarC.TabIndex = 14;
             this.btnBuscarC.Text = "Buscar";
             this.btnBuscarC.UseVisualStyleBackColor = true;
@@ -89,7 +89,7 @@
             // btnRecarregarC
             // 
             this.btnRecarregarC.ForeColor = System.Drawing.Color.DarkBlue;
-            this.btnRecarregarC.Location = new System.Drawing.Point(719, 12);
+            this.btnRecarregarC.Location = new System.Drawing.Point(679, 12);
             this.btnRecarregarC.Name = "btnRecarregarC";
             this.btnRecarregarC.Size = new System.Drawing.Size(75, 23);
             this.btnRecarregarC.TabIndex = 24;
@@ -109,9 +109,9 @@
             "CPF",
             "Altura",
             "Contato"});
-            this.cbxBuscarC.Location = new System.Drawing.Point(249, 12);
+            this.cbxBuscarC.Location = new System.Drawing.Point(277, 12);
             this.cbxBuscarC.Name = "cbxBuscarC";
-            this.cbxBuscarC.Size = new System.Drawing.Size(118, 23);
+            this.cbxBuscarC.Size = new System.Drawing.Size(90, 23);
             this.cbxBuscarC.TabIndex = 21;
             // 
             // btnAlterarC
@@ -146,7 +146,7 @@
             this.txtbuscarC.ForeColor = System.Drawing.Color.DarkBlue;
             this.txtbuscarC.Location = new System.Drawing.Point(373, 12);
             this.txtbuscarC.Name = "txtbuscarC";
-            this.txtbuscarC.Size = new System.Drawing.Size(196, 23);
+            this.txtbuscarC.Size = new System.Drawing.Size(96, 23);
             this.txtbuscarC.TabIndex = 18;
             // 
             // imageList1
@@ -200,11 +200,12 @@
             this.textBox2.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.ForeColor = System.Drawing.Color.DarkBlue;
-            this.textBox2.Location = new System.Drawing.Point(153, 12);
+            this.textBox2.Location = new System.Drawing.Point(195, 12);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(641, 23);
+            this.textBox2.Size = new System.Drawing.Size(559, 23);
             this.textBox2.TabIndex = 22;
             this.textBox2.Text = "     Filtrar por:";
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // Clientes
             // 

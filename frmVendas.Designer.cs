@@ -45,10 +45,23 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txtIdVeiculo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnConsultarCliente = new System.Windows.Forms.Button();
-            this.btnVerificarCliente = new System.Windows.Forms.Button();
-            this.txtIdCliente = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.btnVerificarVeiculo = new System.Windows.Forms.Button();
+            this.btnConsultarVeiculo = new System.Windows.Forms.Button();
+            this.txtFabricacao = new System.Windows.Forms.TextBox();
+            this.txtAutomatico = new System.Windows.Forms.TextBox();
+            this.txtCombustivel = new System.Windows.Forms.TextBox();
+            this.dataGridView5 = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txtDesconto = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dtpVenda = new System.Windows.Forms.DateTimePicker();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btcLimparCampos = new System.Windows.Forms.Button();
+            this.btnRegistrarVenda = new System.Windows.Forms.Button();
             this.mtxCPF = new System.Windows.Forms.MaskedTextBox();
             this.txtAltura = new System.Windows.Forms.TextBox();
             this.mtxPhone = new System.Windows.Forms.MaskedTextBox();
@@ -57,26 +70,15 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtNomeCli = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.btnVerificarVeiculo = new System.Windows.Forms.Button();
-            this.btnConsultarVeiculo = new System.Windows.Forms.Button();
-            this.btnRegistrarVenda = new System.Windows.Forms.Button();
-            this.txtFabricacao = new System.Windows.Forms.TextBox();
-            this.txtAutomatico = new System.Windows.Forms.TextBox();
-            this.txtCombustivel = new System.Windows.Forms.TextBox();
-            this.dataGridView5 = new System.Windows.Forms.DataGridView();
-            this.btcLimparCampos = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.dtpVenda = new System.Windows.Forms.DateTimePicker();
+            this.txtIdCliente = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnVerificarCliente = new System.Windows.Forms.Button();
+            this.btnConsultarCliente = new System.Windows.Forms.Button();
+            this.txtKM = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -106,7 +108,7 @@
             this.txtCor.Location = new System.Drawing.Point(115, 167);
             this.txtCor.MaxLength = 50;
             this.txtCor.Name = "txtCor";
-            this.txtCor.Size = new System.Drawing.Size(285, 20);
+            this.txtCor.Size = new System.Drawing.Size(247, 20);
             this.txtCor.TabIndex = 33;
             // 
             // txtAno
@@ -124,7 +126,7 @@
             this.txtModelo.Location = new System.Drawing.Point(115, 115);
             this.txtModelo.MaxLength = 50;
             this.txtModelo.Name = "txtModelo";
-            this.txtModelo.Size = new System.Drawing.Size(285, 20);
+            this.txtModelo.Size = new System.Drawing.Size(247, 20);
             this.txtModelo.TabIndex = 31;
             // 
             // txtNome
@@ -133,7 +135,7 @@
             this.txtNome.Location = new System.Drawing.Point(115, 89);
             this.txtNome.MaxLength = 60;
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(285, 20);
+            this.txtNome.Size = new System.Drawing.Size(247, 20);
             this.txtNome.TabIndex = 30;
             // 
             // label18
@@ -166,7 +168,7 @@
             this.label15.BackColor = System.Drawing.Color.AliceBlue;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.DarkBlue;
-            this.label15.Location = new System.Drawing.Point(238, 195);
+            this.label15.Location = new System.Drawing.Point(219, 200);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(74, 15);
             this.label15.TabIndex = 27;
@@ -190,7 +192,7 @@
             this.label13.BackColor = System.Drawing.Color.AliceBlue;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.DarkBlue;
-            this.label13.Location = new System.Drawing.Point(222, 142);
+            this.label13.Location = new System.Drawing.Point(184, 142);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(109, 15);
             this.label13.TabIndex = 25;
@@ -252,133 +254,6 @@
             this.label1.Size = new System.Drawing.Size(77, 15);
             this.label1.TabIndex = 39;
             this.label1.Text = "Id do Veiculo";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // btnConsultarCliente
-            // 
-            this.btnConsultarCliente.ForeColor = System.Drawing.Color.DarkBlue;
-            this.btnConsultarCliente.Location = new System.Drawing.Point(184, 254);
-            this.btnConsultarCliente.Name = "btnConsultarCliente";
-            this.btnConsultarCliente.Size = new System.Drawing.Size(83, 20);
-            this.btnConsultarCliente.TabIndex = 41;
-            this.btnConsultarCliente.Text = "Puxar Valores";
-            this.btnConsultarCliente.UseVisualStyleBackColor = true;
-            this.btnConsultarCliente.Click += new System.EventHandler(this.btnConsultarCliente_Click);
-            // 
-            // btnVerificarCliente
-            // 
-            this.btnVerificarCliente.ForeColor = System.Drawing.Color.DarkBlue;
-            this.btnVerificarCliente.Location = new System.Drawing.Point(284, 254);
-            this.btnVerificarCliente.Name = "btnVerificarCliente";
-            this.btnVerificarCliente.Size = new System.Drawing.Size(78, 21);
-            this.btnVerificarCliente.TabIndex = 42;
-            this.btnVerificarCliente.Text = "Ver Clientes";
-            this.btnVerificarCliente.UseVisualStyleBackColor = true;
-            this.btnVerificarCliente.Click += new System.EventHandler(this.btnVerificarCliente_Click);
-            // 
-            // txtIdCliente
-            // 
-            this.txtIdCliente.ForeColor = System.Drawing.Color.DarkBlue;
-            this.txtIdCliente.Location = new System.Drawing.Point(115, 254);
-            this.txtIdCliente.MaxLength = 60;
-            this.txtIdCliente.Name = "txtIdCliente";
-            this.txtIdCliente.Size = new System.Drawing.Size(63, 20);
-            this.txtIdCliente.TabIndex = 44;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.AliceBlue;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.DarkBlue;
-            this.label2.Location = new System.Drawing.Point(32, 254);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 15);
-            this.label2.TabIndex = 43;
-            this.label2.Text = "Id do Cliente";
-            // 
-            // mtxCPF
-            // 
-            this.mtxCPF.ForeColor = System.Drawing.Color.DarkBlue;
-            this.mtxCPF.Location = new System.Drawing.Point(115, 308);
-            this.mtxCPF.Mask = "000.000.000-00";
-            this.mtxCPF.Name = "mtxCPF";
-            this.mtxCPF.Size = new System.Drawing.Size(87, 20);
-            this.mtxCPF.TabIndex = 77;
-            // 
-            // txtAltura
-            // 
-            this.txtAltura.ForeColor = System.Drawing.Color.DarkBlue;
-            this.txtAltura.Location = new System.Drawing.Point(334, 306);
-            this.txtAltura.Name = "txtAltura";
-            this.txtAltura.Size = new System.Drawing.Size(66, 20);
-            this.txtAltura.TabIndex = 76;
-            // 
-            // mtxPhone
-            // 
-            this.mtxPhone.ForeColor = System.Drawing.Color.DarkBlue;
-            this.mtxPhone.Location = new System.Drawing.Point(115, 352);
-            this.mtxPhone.Mask = "(99) 00000-0000";
-            this.mtxPhone.Name = "mtxPhone";
-            this.mtxPhone.Size = new System.Drawing.Size(87, 20);
-            this.mtxPhone.TabIndex = 75;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.AliceBlue;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.DarkBlue;
-            this.label3.Location = new System.Drawing.Point(55, 353);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 15);
-            this.label3.TabIndex = 74;
-            this.label3.Text = "Contato";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.AliceBlue;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.DarkBlue;
-            this.label4.Location = new System.Drawing.Point(249, 308);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(79, 15);
-            this.label4.TabIndex = 73;
-            this.label4.Text = "Altura em cm";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.AliceBlue;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.DarkBlue;
-            this.label7.Location = new System.Drawing.Point(12, 283);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(97, 15);
-            this.label7.TabIndex = 70;
-            this.label7.Text = "Nome Completo";
-            // 
-            // txtNomeCli
-            // 
-            this.txtNomeCli.ForeColor = System.Drawing.Color.DarkBlue;
-            this.txtNomeCli.Location = new System.Drawing.Point(115, 278);
-            this.txtNomeCli.MaxLength = 60;
-            this.txtNomeCli.Name = "txtNomeCli";
-            this.txtNomeCli.Size = new System.Drawing.Size(285, 20);
-            this.txtNomeCli.TabIndex = 69;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.AliceBlue;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.DarkBlue;
-            this.label6.Location = new System.Drawing.Point(79, 310);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(30, 15);
-            this.label6.TabIndex = 68;
-            this.label6.Text = "CPF";
             // 
             // btnVerificarVeiculo
             // 
@@ -402,21 +277,10 @@
             this.btnConsultarVeiculo.UseVisualStyleBackColor = true;
             this.btnConsultarVeiculo.Click += new System.EventHandler(this.btnConsultarVeiculo_Click);
             // 
-            // btnRegistrarVenda
-            // 
-            this.btnRegistrarVenda.ForeColor = System.Drawing.Color.DarkBlue;
-            this.btnRegistrarVenda.Location = new System.Drawing.Point(131, 396);
-            this.btnRegistrarVenda.Name = "btnRegistrarVenda";
-            this.btnRegistrarVenda.Size = new System.Drawing.Size(94, 20);
-            this.btnRegistrarVenda.TabIndex = 80;
-            this.btnRegistrarVenda.Text = "Registrar Venda";
-            this.btnRegistrarVenda.UseVisualStyleBackColor = true;
-            this.btnRegistrarVenda.Click += new System.EventHandler(this.btnRegistrarVenda_Click);
-            // 
             // txtFabricacao
             // 
             this.txtFabricacao.ForeColor = System.Drawing.Color.DarkBlue;
-            this.txtFabricacao.Location = new System.Drawing.Point(337, 141);
+            this.txtFabricacao.Location = new System.Drawing.Point(299, 137);
             this.txtFabricacao.MaxLength = 4;
             this.txtFabricacao.Name = "txtFabricacao";
             this.txtFabricacao.Size = new System.Drawing.Size(63, 20);
@@ -433,7 +297,7 @@
             // txtCombustivel
             // 
             this.txtCombustivel.ForeColor = System.Drawing.Color.DarkBlue;
-            this.txtCombustivel.Location = new System.Drawing.Point(337, 195);
+            this.txtCombustivel.Location = new System.Drawing.Point(299, 199);
             this.txtCombustivel.Name = "txtCombustivel";
             this.txtCombustivel.Size = new System.Drawing.Size(63, 20);
             this.txtCombustivel.TabIndex = 83;
@@ -441,42 +305,31 @@
             // dataGridView5
             // 
             this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView5.Location = new System.Drawing.Point(20, 85);
+            this.dataGridView5.Location = new System.Drawing.Point(14, 37);
             this.dataGridView5.Name = "dataGridView5";
-            this.dataGridView5.Size = new System.Drawing.Size(495, 226);
+            this.dataGridView5.Size = new System.Drawing.Size(886, 116);
             this.dataGridView5.TabIndex = 84;
-            // 
-            // btcLimparCampos
-            // 
-            this.btcLimparCampos.ForeColor = System.Drawing.Color.DarkBlue;
-            this.btcLimparCampos.Location = new System.Drawing.Point(252, 396);
-            this.btcLimparCampos.Name = "btcLimparCampos";
-            this.btcLimparCampos.Size = new System.Drawing.Size(94, 20);
-            this.btcLimparCampos.TabIndex = 85;
-            this.btcLimparCampos.Text = "Limpar";
-            this.btcLimparCampos.UseVisualStyleBackColor = true;
-            this.btcLimparCampos.Click += new System.EventHandler(this.btcLimparCampos_Click);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.AliceBlue;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.DarkBlue;
-            this.label8.Location = new System.Drawing.Point(222, 353);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(88, 15);
-            this.label8.TabIndex = 87;
-            this.label8.Text = "Data de Venda";
+            this.dataGridView5.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView5_CellContentClick);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Info;
+            this.panel1.Controls.Add(this.textBox2);
             this.panel1.Controls.Add(this.dataGridView5);
-            this.panel1.Location = new System.Drawing.Point(420, 30);
+            this.panel1.Location = new System.Drawing.Point(0, 279);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(537, 412);
+            this.panel1.Size = new System.Drawing.Size(914, 173);
             this.panel1.TabIndex = 88;
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.textBox2.ForeColor = System.Drawing.Color.DarkBlue;
+            this.textBox2.Location = new System.Drawing.Point(14, 11);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(886, 20);
+            this.textBox2.TabIndex = 0;
+            this.textBox2.Text = "Tabelas";
             // 
             // panel2
             // 
@@ -497,35 +350,36 @@
             this.textBox1.TabIndex = 0;
             this.textBox1.Text = "Registrar Venda";
             // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.panel3.Controls.Add(this.textBox2);
-            this.panel3.Location = new System.Drawing.Point(420, -1);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(537, 25);
-            this.panel3.TabIndex = 85;
-            // 
-            // textBox2
-            // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.textBox2.ForeColor = System.Drawing.Color.DarkBlue;
-            this.textBox2.Location = new System.Drawing.Point(4, 2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(522, 20);
-            this.textBox2.TabIndex = 0;
-            this.textBox2.Text = "Tabelas";
-            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.AliceBlue;
             this.pictureBox1.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.ErrorImage")));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, -13);
+            this.pictureBox1.Location = new System.Drawing.Point(63, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(954, 488);
             this.pictureBox1.TabIndex = 90;
             this.pictureBox1.TabStop = false;
+            // 
+            // txtDesconto
+            // 
+            this.txtDesconto.ForeColor = System.Drawing.Color.DarkBlue;
+            this.txtDesconto.Location = new System.Drawing.Point(510, 194);
+            this.txtDesconto.Name = "txtDesconto";
+            this.txtDesconto.Size = new System.Drawing.Size(63, 20);
+            this.txtDesconto.TabIndex = 93;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.AliceBlue;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.DarkBlue;
+            this.label5.Location = new System.Drawing.Point(430, 195);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(59, 15);
+            this.label5.TabIndex = 92;
+            this.label5.Text = "Desconto";
             // 
             // dtpVenda
             // 
@@ -533,11 +387,190 @@
             this.dtpVenda.CalendarTitleForeColor = System.Drawing.Color.DarkBlue;
             this.dtpVenda.CalendarTrailingForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dtpVenda.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpVenda.Location = new System.Drawing.Point(316, 352);
+            this.dtpVenda.Location = new System.Drawing.Point(711, 167);
             this.dtpVenda.Name = "dtpVenda";
             this.dtpVenda.Size = new System.Drawing.Size(98, 20);
-            this.dtpVenda.TabIndex = 91;
+            this.dtpVenda.TabIndex = 109;
             this.dtpVenda.Value = new System.DateTime(2024, 5, 23, 19, 43, 2, 0);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.AliceBlue;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.DarkBlue;
+            this.label8.Location = new System.Drawing.Point(617, 168);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(88, 15);
+            this.label8.TabIndex = 108;
+            this.label8.Text = "Data de Venda";
+            // 
+            // btcLimparCampos
+            // 
+            this.btcLimparCampos.ForeColor = System.Drawing.Color.DarkBlue;
+            this.btcLimparCampos.Location = new System.Drawing.Point(629, 234);
+            this.btcLimparCampos.Name = "btcLimparCampos";
+            this.btcLimparCampos.Size = new System.Drawing.Size(94, 20);
+            this.btcLimparCampos.TabIndex = 107;
+            this.btcLimparCampos.Text = "Limpar";
+            this.btcLimparCampos.UseVisualStyleBackColor = true;
+            this.btcLimparCampos.Click += new System.EventHandler(this.btcLimparCampos_Click);
+            // 
+            // btnRegistrarVenda
+            // 
+            this.btnRegistrarVenda.ForeColor = System.Drawing.Color.DarkBlue;
+            this.btnRegistrarVenda.Location = new System.Drawing.Point(508, 234);
+            this.btnRegistrarVenda.Name = "btnRegistrarVenda";
+            this.btnRegistrarVenda.Size = new System.Drawing.Size(94, 20);
+            this.btnRegistrarVenda.TabIndex = 106;
+            this.btnRegistrarVenda.Text = "Registrar Venda";
+            this.btnRegistrarVenda.UseVisualStyleBackColor = true;
+            this.btnRegistrarVenda.Click += new System.EventHandler(this.btnRegistrarVenda_Click);
+            // 
+            // mtxCPF
+            // 
+            this.mtxCPF.ForeColor = System.Drawing.Color.DarkBlue;
+            this.mtxCPF.Location = new System.Drawing.Point(510, 123);
+            this.mtxCPF.Mask = "000.000.000-00";
+            this.mtxCPF.Name = "mtxCPF";
+            this.mtxCPF.Size = new System.Drawing.Size(87, 20);
+            this.mtxCPF.TabIndex = 105;
+            // 
+            // txtAltura
+            // 
+            this.txtAltura.ForeColor = System.Drawing.Color.DarkBlue;
+            this.txtAltura.Location = new System.Drawing.Point(729, 121);
+            this.txtAltura.Name = "txtAltura";
+            this.txtAltura.Size = new System.Drawing.Size(66, 20);
+            this.txtAltura.TabIndex = 104;
+            // 
+            // mtxPhone
+            // 
+            this.mtxPhone.ForeColor = System.Drawing.Color.DarkBlue;
+            this.mtxPhone.Location = new System.Drawing.Point(510, 167);
+            this.mtxPhone.Mask = "(99) 00000-0000";
+            this.mtxPhone.Name = "mtxPhone";
+            this.mtxPhone.Size = new System.Drawing.Size(87, 20);
+            this.mtxPhone.TabIndex = 103;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.AliceBlue;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.DarkBlue;
+            this.label3.Location = new System.Drawing.Point(450, 168);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(49, 15);
+            this.label3.TabIndex = 102;
+            this.label3.Text = "Contato";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.AliceBlue;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.DarkBlue;
+            this.label4.Location = new System.Drawing.Point(644, 123);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(79, 15);
+            this.label4.TabIndex = 101;
+            this.label4.Text = "Altura em cm";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.AliceBlue;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.DarkBlue;
+            this.label7.Location = new System.Drawing.Point(407, 98);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(97, 15);
+            this.label7.TabIndex = 100;
+            this.label7.Text = "Nome Completo";
+            // 
+            // txtNomeCli
+            // 
+            this.txtNomeCli.ForeColor = System.Drawing.Color.DarkBlue;
+            this.txtNomeCli.Location = new System.Drawing.Point(510, 93);
+            this.txtNomeCli.MaxLength = 60;
+            this.txtNomeCli.Name = "txtNomeCli";
+            this.txtNomeCli.Size = new System.Drawing.Size(285, 20);
+            this.txtNomeCli.TabIndex = 99;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.AliceBlue;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.DarkBlue;
+            this.label6.Location = new System.Drawing.Point(474, 125);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(30, 15);
+            this.label6.TabIndex = 98;
+            this.label6.Text = "CPF";
+            // 
+            // txtIdCliente
+            // 
+            this.txtIdCliente.ForeColor = System.Drawing.Color.DarkBlue;
+            this.txtIdCliente.Location = new System.Drawing.Point(510, 69);
+            this.txtIdCliente.MaxLength = 60;
+            this.txtIdCliente.Name = "txtIdCliente";
+            this.txtIdCliente.Size = new System.Drawing.Size(63, 20);
+            this.txtIdCliente.TabIndex = 97;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.AliceBlue;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.DarkBlue;
+            this.label2.Location = new System.Drawing.Point(427, 69);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(75, 15);
+            this.label2.TabIndex = 96;
+            this.label2.Text = "Id do Cliente";
+            // 
+            // btnVerificarCliente
+            // 
+            this.btnVerificarCliente.ForeColor = System.Drawing.Color.DarkBlue;
+            this.btnVerificarCliente.Location = new System.Drawing.Point(679, 69);
+            this.btnVerificarCliente.Name = "btnVerificarCliente";
+            this.btnVerificarCliente.Size = new System.Drawing.Size(78, 21);
+            this.btnVerificarCliente.TabIndex = 95;
+            this.btnVerificarCliente.Text = "Ver Clientes";
+            this.btnVerificarCliente.UseVisualStyleBackColor = true;
+            this.btnVerificarCliente.Click += new System.EventHandler(this.btnVerificarCliente_Click);
+            // 
+            // btnConsultarCliente
+            // 
+            this.btnConsultarCliente.ForeColor = System.Drawing.Color.DarkBlue;
+            this.btnConsultarCliente.Location = new System.Drawing.Point(579, 69);
+            this.btnConsultarCliente.Name = "btnConsultarCliente";
+            this.btnConsultarCliente.Size = new System.Drawing.Size(83, 20);
+            this.btnConsultarCliente.TabIndex = 94;
+            this.btnConsultarCliente.Text = "Puxar Valores";
+            this.btnConsultarCliente.UseVisualStyleBackColor = true;
+            // 
+            // txtKM
+            // 
+            this.txtKM.ForeColor = System.Drawing.Color.DarkBlue;
+            this.txtKM.Location = new System.Drawing.Point(299, 235);
+            this.txtKM.Name = "txtKM";
+            this.txtKM.Size = new System.Drawing.Size(63, 20);
+            this.txtKM.TabIndex = 111;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.AliceBlue;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.DarkBlue;
+            this.label9.Location = new System.Drawing.Point(200, 239);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(93, 15);
+            this.label9.TabIndex = 110;
+            this.label9.Text = "Quilometragem";
             // 
             // frmVendas
             // 
@@ -545,17 +578,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkBlue;
             this.ClientSize = new System.Drawing.Size(951, 464);
+            this.Controls.Add(this.txtKM);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.dtpVenda);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.btcLimparCampos);
-            this.Controls.Add(this.txtCombustivel);
-            this.Controls.Add(this.txtAutomatico);
-            this.Controls.Add(this.txtFabricacao);
             this.Controls.Add(this.btnRegistrarVenda);
-            this.Controls.Add(this.btnVerificarVeiculo);
-            this.Controls.Add(this.btnConsultarVeiculo);
             this.Controls.Add(this.mtxCPF);
             this.Controls.Add(this.txtAltura);
             this.Controls.Add(this.mtxPhone);
@@ -568,6 +596,14 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnVerificarCliente);
             this.Controls.Add(this.btnConsultarCliente);
+            this.Controls.Add(this.txtDesconto);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.txtCombustivel);
+            this.Controls.Add(this.txtAutomatico);
+            this.Controls.Add(this.txtFabricacao);
+            this.Controls.Add(this.btnVerificarVeiculo);
+            this.Controls.Add(this.btnConsultarVeiculo);
             this.Controls.Add(this.txtIdVeiculo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label16);
@@ -593,10 +629,9 @@
             this.Load += new System.EventHandler(this.frmVendas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -621,10 +656,23 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtIdVeiculo;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnConsultarCliente;
-        private System.Windows.Forms.Button btnVerificarCliente;
-        private System.Windows.Forms.TextBox txtIdCliente;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnVerificarVeiculo;
+        private System.Windows.Forms.Button btnConsultarVeiculo;
+        private System.Windows.Forms.TextBox txtFabricacao;
+        private System.Windows.Forms.TextBox txtAutomatico;
+        private System.Windows.Forms.TextBox txtCombustivel;
+        private System.Windows.Forms.DataGridView dataGridView5;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox txtDesconto;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DateTimePicker dtpVenda;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btcLimparCampos;
+        private System.Windows.Forms.Button btnRegistrarVenda;
         private System.Windows.Forms.MaskedTextBox mtxCPF;
         private System.Windows.Forms.TextBox txtAltura;
         private System.Windows.Forms.MaskedTextBox mtxPhone;
@@ -633,21 +681,11 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtNomeCli;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button btnVerificarVeiculo;
-        private System.Windows.Forms.Button btnConsultarVeiculo;
-        private System.Windows.Forms.Button btnRegistrarVenda;
-        private System.Windows.Forms.TextBox txtFabricacao;
-        private System.Windows.Forms.TextBox txtAutomatico;
-        private System.Windows.Forms.TextBox txtCombustivel;
-        private System.Windows.Forms.DataGridView dataGridView5;
-        private System.Windows.Forms.Button btcLimparCampos;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DateTimePicker dtpVenda;
+        private System.Windows.Forms.TextBox txtIdCliente;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnVerificarCliente;
+        private System.Windows.Forms.Button btnConsultarCliente;
+        private System.Windows.Forms.TextBox txtKM;
+        private System.Windows.Forms.Label label9;
     }
 }

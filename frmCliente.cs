@@ -19,12 +19,7 @@ namespace Trabalho_Banco_De_Dados
                 GetCliente(id);
         }
 
-        public frmCliente(int id, bool excluir)
-        {
-            InitializeComponent();
-            this.id = id;
-        }
-
+        
         private void TravarControles()
         {
             txtNomeCli.Enabled = false;
@@ -48,13 +43,13 @@ namespace Trabalho_Banco_De_Dados
 
         private bool ValidarCPF(string cpf)
         {
-            // Remove non-numeric characters
+            // Remove caracteres não numéricos
             cpf = new string(cpf.Where(char.IsDigit).ToArray());
 
             if (cpf.Length != 11)
                 return false;
 
-            // Check for known invalid CPF numbers
+            // Verifica se o CPF é inválido
             var invalidNumbers = new string[]
             {
                 "00000000000", "11111111111", "22222222222", "33333333333",
@@ -65,7 +60,7 @@ namespace Trabalho_Banco_De_Dados
             if (invalidNumbers.Contains(cpf))
                 return false;
 
-            // Validate CPF digits
+            // Valida os dígitos do CPF
             int[] multiplicador1 = new int[9] { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
             int[] multiplicador2 = new int[10] { 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 };
             string tempCpf, digito;
@@ -103,10 +98,12 @@ namespace Trabalho_Banco_De_Dados
                 using (SqlConnection cn2 = new SqlConnection(Conn.StrCon))
                 {
                     cn2.Open();
-                    var sql = "Select * from Clientes where ID_Cliente= " + id;
+                    var sql = "SELECT * FROM Clientes WHERE ID_Cliente = @ID_Cliente";
 
                     using (SqlCommand cmd2 = new SqlCommand(sql, cn2))
                     {
+                        cmd2.Parameters.AddWithValue("@ID_Cliente", id);
+
                         using (SqlDataReader dr2 = cmd2.ExecuteReader())
                         {
                             if (dr2.HasRows)
@@ -162,19 +159,17 @@ namespace Trabalho_Banco_De_Dados
                         }
                     }
 
-                    var sql = "";
-                    if (this.id == 0)
-                        sql = "INSERT INTO Clientes (NomeCli, CPF, Altura, Contato)" +
-                              " VALUES (@NomeCli, @CPF, @Altura, @Contato)";
-                    else
-                        sql = "UPDATE Clientes Set NomeCli=@NomeCli, CPF=@CPF, Altura=@Altura, Contato=@Contato WHERE ID_Cliente=" + this.id;
-
-                    using (SqlCommand cmd2 = new SqlCommand(sql, cn2))
+                    using (SqlCommand cmd2 = new SqlCommand(this.id == 0 ? "sp_InserirCliente" : "sp_AtualizarCliente", cn2))
                     {
+                        cmd2.CommandType = System.Data.CommandType.StoredProcedure;
                         cmd2.Parameters.AddWithValue("@NomeCli", txtNomeCli.Text);
                         cmd2.Parameters.AddWithValue("@CPF", mtxCPF.Text);
-                        cmd2.Parameters.AddWithValue("@Altura", txtAltura.Text);
+                        cmd2.Parameters.AddWithValue("@Altura", int.Parse(txtAltura.Text));
                         cmd2.Parameters.AddWithValue("@Contato", mtxPhone.Text);
+
+                        if (this.id != 0)
+                            cmd2.Parameters.AddWithValue("@ID_Cliente", this.id);
+
                         cmd2.ExecuteNonQuery();
                     }
                 }
@@ -189,15 +184,7 @@ namespace Trabalho_Banco_De_Dados
             }
         }
 
-        private void statusStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-            // Evento ItemClicked do statusStrip2
-        }
-
-        private void frmCliente_Load(object sender, EventArgs e)
-        {
-            // Evento Load do formulário
-        }
+        
 
         private void btnSalvarC_Click(object sender, EventArgs e)
         {
@@ -207,7 +194,20 @@ namespace Trabalho_Banco_De_Dados
             }
         }
 
-        private void txtPeso_TextChanged(object sender, EventArgs e)
+        private void frmCliente_Load(object sender, EventArgs e)
+        {
+            // Evento Load do formulário
+        }
+
+        private void statusStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            // Evento ItemClicked do statusStrip2
+        }
+
+
+
+
+private void txtPeso_TextChanged(object sender, EventArgs e)
         {
             // Evento TextChanged do txtPeso
         }

@@ -82,6 +82,39 @@ namespace Trabalho_Banco_De_Dados
                 }
             }
         }
+        private void LoadDataVeiculos()
+        {
+            using (SqlConnection cn = new SqlConnection(Conn.StrCon))
+            {
+                cn.Open();
+                string query = "SELECT * FROM vw_Veiculos WHERE Situacao = 'À Venda'";
+
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(query, cn);
+                DataTable table = new DataTable();
+                dataAdapter.Fill(table);
+
+                dataGridView5.DataSource = table;
+            }
+        }
+
+        private void LoadDataClientes()
+        {
+            using (SqlConnection cn2 = new SqlConnection(Conn.StrCon))
+            {
+                cn2.Open();
+                string query = "SELECT * FROM Clientes";
+
+                SqlDataAdapter dataAdapter2 = new SqlDataAdapter(query, cn2);
+                SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter2);
+                DataTable table2 = new DataTable();
+                dataAdapter2.Fill(table2);
+
+                BindingSource bindingSource = new BindingSource();
+                bindingSource.DataSource = table2;
+
+                dataGridView5.DataSource = bindingSource;
+            }
+        }
 
         private void btnConsultarVeiculo_Click(object sender, EventArgs e)
         {
@@ -140,33 +173,43 @@ namespace Trabalho_Banco_De_Dados
         {
             if (CamposObrigatoriosPreenchidos())
             {
-                SqlConnection conn = new SqlConnection(Conn.StrCon);
-                SqlCommand commInsert = new SqlCommand("sp_InserirVenda", conn);
-                commInsert.CommandType = CommandType.StoredProcedure;
-
-                commInsert.Parameters.Add("@ID_Veiculo", SqlDbType.Int).Value = Convert.ToInt32(txtIdVeiculo.Text);
-                commInsert.Parameters.Add("@ID_Cliente", SqlDbType.Int).Value = Convert.ToInt32(txtIdCliente.Text);
-                commInsert.Parameters.Add("@DataVenda", SqlDbType.Date).Value = Convert.ToDateTime(dtpVenda.Text);
-                commInsert.Parameters.Add("@Valor", SqlDbType.Decimal).Value = Convert.ToDecimal(txtValor.Text);
-                commInsert.Parameters.Add("@Desconto", SqlDbType.Decimal).Value = Convert.ToDecimal(txtDesconto.Text);
-
-                try
+                using (SqlConnection conn = new SqlConnection(Conn.StrCon))
                 {
                     conn.Open();
-                    commInsert.ExecuteNonQuery();
-                    MessageBox.Show("Venda realizada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LimparCampos(); // Limpar os campos após a venda
-                }
-                catch (Exception error)
-                {
-                    MessageBox.Show(error.Message, "Erro ao tentar realizar a venda", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    conn.Close();
+                    SqlTransaction transaction = conn.BeginTransaction();
+
+                    try
+                    {
+                        SqlCommand commInsert = new SqlCommand("sp_InserirVenda", conn, transaction);
+                        commInsert.CommandType = CommandType.StoredProcedure;
+
+                        commInsert.Parameters.Add("@ID_Veiculo", SqlDbType.Int).Value = Convert.ToInt32(txtIdVeiculo.Text);
+                        commInsert.Parameters.Add("@ID_Cliente", SqlDbType.Int).Value = Convert.ToInt32(txtIdCliente.Text);
+                        commInsert.Parameters.Add("@DataVenda", SqlDbType.Date).Value = Convert.ToDateTime(dtpVenda.Text);
+                        commInsert.Parameters.Add("@Valor", SqlDbType.Decimal).Value = Convert.ToDecimal(txtValor.Text);
+                        commInsert.Parameters.Add("@Desconto", SqlDbType.Decimal).Value = Convert.ToDecimal(txtDesconto.Text);
+
+                        commInsert.ExecuteNonQuery();
+
+                        SqlCommand commUpdate = new SqlCommand("UPDATE Veiculos SET Situacao = 'Vendido' WHERE ID_Veiculo = @ID_Veiculo", conn, transaction);
+                        commUpdate.Parameters.Add("@ID_Veiculo", SqlDbType.Int).Value = Convert.ToInt32(txtIdVeiculo.Text);
+
+                        commUpdate.ExecuteNonQuery();
+
+                        transaction.Commit();
+
+                        MessageBox.Show("Venda realizada com sucesso e veículo atualizado para 'Vendido'!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LimparCampos();
+                    }
+                    catch (Exception error)
+                    {
+                        transaction.Rollback();
+                        MessageBox.Show(error.Message, "Erro ao tentar realizar a venda", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
+
 
         private void LimparCampos()
         {
@@ -212,12 +255,17 @@ namespace Trabalho_Banco_De_Dados
 
         private void btnVerificarVeiculo_Click(object sender, EventArgs e)
         {
-            ConsultarVeiculo();
+            LoadDataVeiculos();
         }
 
         private void btnVerificarCliente_Click(object sender, EventArgs e)
         {
+            LoadDataClientes();
+        }
 
+        private void btnConsultarCliente_Click_1(object sender, EventArgs e)
+        {
+            ConsultarCliente();
         }
     }
 }

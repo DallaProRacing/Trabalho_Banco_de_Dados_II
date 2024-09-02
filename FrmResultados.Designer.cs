@@ -40,6 +40,7 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtFiltro = new System.Windows.Forms.TextBox();
             this.cbxFiltro = new System.Windows.Forms.ComboBox();
+            this.btnRecarregar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVendas)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -109,6 +110,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnRecarregar);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnBuscar);
             this.panel1.Controls.Add(this.txtFiltro);
@@ -154,13 +156,24 @@
             this.cbxFiltro.ForeColor = System.Drawing.Color.DarkBlue;
             this.cbxFiltro.FormattingEnabled = true;
             this.cbxFiltro.Items.AddRange(new object[] {
-            "NomeCliente",
-            "NomeVeiculo",
+            "ID_Cliente",
+            "ID_Veiculo",
             "DataVenda"});
             this.cbxFiltro.Location = new System.Drawing.Point(66, 3);
             this.cbxFiltro.Name = "cbxFiltro";
             this.cbxFiltro.Size = new System.Drawing.Size(100, 21);
             this.cbxFiltro.TabIndex = 0;
+            // 
+            // btnRecarregar
+            // 
+            this.btnRecarregar.ForeColor = System.Drawing.Color.DarkBlue;
+            this.btnRecarregar.Location = new System.Drawing.Point(696, 2);
+            this.btnRecarregar.Name = "btnRecarregar";
+            this.btnRecarregar.Size = new System.Drawing.Size(75, 23);
+            this.btnRecarregar.TabIndex = 4;
+            this.btnRecarregar.Text = "Recarregar";
+            this.btnRecarregar.UseVisualStyleBackColor = true;
+            this.btnRecarregar.Click += new System.EventHandler(this.btnRecarregar_Click);
             // 
             // FrmResultados
             // 
@@ -202,5 +215,6 @@
         private System.Windows.Forms.TextBox txtFiltro;
         private System.Windows.Forms.ComboBox cbxFiltro;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnRecarregar;
     }
 }

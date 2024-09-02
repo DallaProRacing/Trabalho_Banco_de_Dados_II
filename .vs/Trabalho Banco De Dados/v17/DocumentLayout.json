@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\User\\source\\repos\\Trabalho_Banco_de_Dados_II\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{953E8EE3-6BB2-4499-925B-5653FBA8C467}|Trabalho Banco De Dados.csproj|c:\\users\\user\\source\\repos\\trabalho_banco_de_dados_ii\\frmvendas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{953E8EE3-6BB2-4499-925B-5653FBA8C467}|Trabalho Banco De Dados.csproj|solutionrelative:frmvendas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{953E8EE3-6BB2-4499-925B-5653FBA8C467}|Trabalho Banco De Dados.csproj|c:\\users\\user\\source\\repos\\trabalho_banco_de_dados_ii\\frmresultados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{953E8EE3-6BB2-4499-925B-5653FBA8C467}|Trabalho Banco De Dados.csproj|solutionrelative:frmresultados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{953E8EE3-6BB2-4499-925B-5653FBA8C467}|Trabalho Banco De Dados.csproj|C:\\Users\\User\\source\\repos\\Trabalho_Banco_de_Dados_II\\frmresultados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{953E8EE3-6BB2-4499-925B-5653FBA8C467}|Trabalho Banco De Dados.csproj|solutionrelative:frmresultados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{953E8EE3-6BB2-4499-925B-5653FBA8C467}|Trabalho Banco De Dados.csproj|c:\\users\\user\\source\\repos\\trabalho_banco_de_dados_ii\\frmvendas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{953E8EE3-6BB2-4499-925B-5653FBA8C467}|Trabalho Banco De Dados.csproj|solutionrelative:frmvendas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{953E8EE3-6BB2-4499-925B-5653FBA8C467}|Trabalho Banco De Dados.csproj|c:\\users\\user\\source\\repos\\trabalho_banco_de_dados_ii\\clientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{953E8EE3-6BB2-4499-925B-5653FBA8C467}|Trabalho Banco De Dados.csproj|solutionrelative:clientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{953E8EE3-6BB2-4499-925B-5653FBA8C467}|Trabalho Banco De Dados.csproj|C:\\Users\\User\\source\\repos\\Trabalho_Banco_de_Dados_II\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{953E8EE3-6BB2-4499-925B-5653FBA8C467}|Trabalho Banco De Dados.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{953E8EE3-6BB2-4499-925B-5653FBA8C467}|Trabalho Banco De Dados.csproj|c:\\users\\user\\source\\repos\\trabalho_banco_de_dados_ii\\clientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{953E8EE3-6BB2-4499-925B-5653FBA8C467}|Trabalho Banco De Dados.csproj|solutionrelative:clientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{953E8EE3-6BB2-4499-925B-5653FBA8C467}|Trabalho Banco De Dados.csproj|C:\\Users\\User\\source\\repos\\Trabalho_Banco_de_Dados_II\\conn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{953E8EE3-6BB2-4499-925B-5653FBA8C467}|Trabalho Banco De Dados.csproj|solutionrelative:conn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,8 +30,22 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 8,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Conn.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\Trabalho_Banco_de_Dados_II\\Conn.cs",
+              "RelativeDocumentMoniker": "Conn.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\Trabalho_Banco_de_Dados_II\\Conn.cs",
+              "RelativeToolTip": "Conn.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAwAAAA6AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-01T13:14:36.124Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{25f7e850-ffa1-11d0-b63f-00a0c922e851}"
@@ -50,52 +68,52 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "frmVendas.cs",
-              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\Trabalho_Banco_de_Dados_II\\frmVendas.cs",
-              "RelativeDocumentMoniker": "frmVendas.cs",
-              "ToolTip": "C:\\Users\\User\\source\\repos\\Trabalho_Banco_de_Dados_II\\frmVendas.cs",
-              "RelativeToolTip": "frmVendas.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAANsAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-26T23:35:49.619Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "frmVendas.cs [Design]",
               "DocumentMoniker": "C:\\Users\\User\\source\\repos\\Trabalho_Banco_de_Dados_II\\frmVendas.cs",
               "RelativeDocumentMoniker": "frmVendas.cs",
               "ToolTip": "C:\\Users\\User\\source\\repos\\Trabalho_Banco_de_Dados_II\\frmVendas.cs [Design]",
               "RelativeToolTip": "frmVendas.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-26T23:35:38.282Z",
+              "WhenOpened": "2024-09-02T23:08:53.525Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Clientes.cs",
-              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\Trabalho_Banco_de_Dados_II\\Clientes.cs",
-              "RelativeDocumentMoniker": "Clientes.cs",
-              "ToolTip": "C:\\Users\\User\\source\\repos\\Trabalho_Banco_de_Dados_II\\Clientes.cs",
-              "RelativeToolTip": "Clientes.cs",
-              "ViewState": "AQIAAHMAAAAAAAAAAAAcwHsAAAAUAAAA",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\Trabalho_Banco_de_Dados_II\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\Trabalho_Banco_de_Dados_II\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAgwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-26T23:14:32.296Z",
+              "WhenOpened": "2024-09-01T13:14:31.305Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Clientes.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\Trabalho_Banco_de_Dados_II\\Clientes.cs",
-              "RelativeDocumentMoniker": "Clientes.cs",
-              "ToolTip": "C:\\Users\\User\\source\\repos\\Trabalho_Banco_de_Dados_II\\Clientes.cs [Design]",
-              "RelativeToolTip": "Clientes.cs [Design]",
+              "DocumentIndex": 0,
+              "Title": "FrmResultados.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\Trabalho_Banco_de_Dados_II\\FrmResultados.cs",
+              "RelativeDocumentMoniker": "FrmResultados.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\Trabalho_Banco_de_Dados_II\\FrmResultados.cs",
+              "RelativeToolTip": "FrmResultados.cs",
+              "ViewState": "AQIAAAgBAAAAAAAAAAApwBUBAAAXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-26T23:14:28.76Z",
+              "WhenOpened": "2024-09-01T12:48:27.124Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FrmResultados.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\Trabalho_Banco_de_Dados_II\\FrmResultados.cs",
+              "RelativeDocumentMoniker": "FrmResultados.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\Trabalho_Banco_de_Dados_II\\FrmResultados.cs [Design]",
+              "RelativeToolTip": "FrmResultados.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-01T12:48:19.657Z",
               "EditorCaption": " [Design]"
             }
           ]

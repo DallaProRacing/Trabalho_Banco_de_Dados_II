@@ -97,7 +97,7 @@
             // txtValor
             // 
             this.txtValor.ForeColor = System.Drawing.Color.DarkBlue;
-            this.txtValor.Location = new System.Drawing.Point(115, 220);
+            this.txtValor.Location = new System.Drawing.Point(115, 225);
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(63, 20);
             this.txtValor.TabIndex = 34;
@@ -204,7 +204,7 @@
             this.label12.BackColor = System.Drawing.Color.AliceBlue;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.DarkBlue;
-            this.label12.Location = new System.Drawing.Point(74, 220);
+            this.label12.Location = new System.Drawing.Point(76, 226);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(35, 15);
             this.label12.TabIndex = 24;
@@ -551,11 +551,12 @@
             this.btnConsultarCliente.TabIndex = 94;
             this.btnConsultarCliente.Text = "Puxar Valores";
             this.btnConsultarCliente.UseVisualStyleBackColor = true;
+            this.btnConsultarCliente.Click += new System.EventHandler(this.btnConsultarCliente_Click_1);
             // 
             // txtKM
             // 
             this.txtKM.ForeColor = System.Drawing.Color.DarkBlue;
-            this.txtKM.Location = new System.Drawing.Point(299, 235);
+            this.txtKM.Location = new System.Drawing.Point(299, 225);
             this.txtKM.Name = "txtKM";
             this.txtKM.Size = new System.Drawing.Size(63, 20);
             this.txtKM.TabIndex = 111;
@@ -566,7 +567,7 @@
             this.label9.BackColor = System.Drawing.Color.AliceBlue;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.DarkBlue;
-            this.label9.Location = new System.Drawing.Point(200, 239);
+            this.label9.Location = new System.Drawing.Point(200, 226);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(93, 15);
             this.label9.TabIndex = 110;

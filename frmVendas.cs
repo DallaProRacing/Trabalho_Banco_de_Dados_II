@@ -191,14 +191,9 @@ namespace Trabalho_Banco_De_Dados
 
                         commInsert.ExecuteNonQuery();
 
-                        SqlCommand commUpdate = new SqlCommand("UPDATE Veiculos SET Situacao = 'Vendido' WHERE ID_Veiculo = @ID_Veiculo", conn, transaction);
-                        commUpdate.Parameters.Add("@ID_Veiculo", SqlDbType.Int).Value = Convert.ToInt32(txtIdVeiculo.Text);
-
-                        commUpdate.ExecuteNonQuery();
-
                         transaction.Commit();
 
-                        MessageBox.Show("Venda realizada com sucesso e veículo atualizado para 'Vendido'!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Venda realizada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         LimparCampos();
                     }
                     catch (Exception error)
@@ -209,6 +204,7 @@ namespace Trabalho_Banco_De_Dados
                 }
             }
         }
+
 
 
         private void LimparCampos()

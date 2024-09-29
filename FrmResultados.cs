@@ -75,11 +75,13 @@ namespace Trabalho_Banco_De_Dados
                 // Pegando o ID da venda selecionada
                 int vendaId = Convert.ToInt32(selectedRow.Cells["ID_Venda"].Value);
 
-                // Query para buscar os dados necessários na tabela Vendas
-                string query = @"SELECT ID_Venda, ID_Cliente, ID_Veiculo, 
-                         DataVenda, Valor, Desconto, ValorVenda
-                         FROM Vendas
-                         WHERE ID_Venda = @ID_Venda";
+                // Query ajustada para buscar os dados necessários nas tabelas Vendas, Clientes e Veiculos
+                string query = @"SELECT Vendas.ID_Venda, Clientes.NomeCli AS NomeCli, Veiculos.NomeVeiculo AS NomeVeiculo,
+                        Vendas.DataVenda, Vendas.Valor, Vendas.Desconto, Vendas.ValorVenda
+                 FROM Vendas
+                 INNER JOIN Clientes ON Vendas.ID_Cliente = Clientes.ID_Cliente
+                 INNER JOIN Veiculos ON Vendas.ID_Veiculo = Veiculos.ID_Veiculo
+                 WHERE Vendas.ID_Venda = @ID_Venda";
 
                 using (SqlConnection conn = new SqlConnection(Conn.StrCon))
                 {
@@ -94,8 +96,8 @@ namespace Trabalho_Banco_De_Dados
                             if (reader.Read())
                             {
                                 // Dados recuperados
-                                int clienteId = Convert.ToInt32(reader["ID_Cliente"]);
-                                int veiculoId = Convert.ToInt32(reader["ID_Veiculo"]);
+                                string nomeCliente = reader["NomeCli"].ToString();
+                                string nomeVeiculo = reader["NomeVeiculo"].ToString();
                                 DateTime dataVenda = Convert.ToDateTime(reader["DataVenda"]);
                                 decimal valor = Convert.ToDecimal(reader["Valor"]);
                                 decimal desconto = Convert.ToDecimal(reader["Desconto"]);
@@ -119,9 +121,8 @@ namespace Trabalho_Banco_De_Dados
                                 // Adicionando identificadores
                                 document.Add(new Paragraph($"Nota de Venda - ID: {vendaId}"));
                                 document.Add(new Paragraph($"Data da Emissão: {DateTime.Now.ToString("dd/MM/yyyy")}"));
-                                document.Add(new Paragraph($"ID do Cliente: {clienteId}"));
-                                document.Add(new Paragraph($"ID do Veículo: {veiculoId}"));
-
+                                document.Add(new Paragraph($"Cliente: {nomeCliente}"));
+                                
                                 // Espaço
                                 document.Add(new Paragraph("\n"));
                                 document.Add(new Paragraph("\n\n"));
@@ -131,14 +132,12 @@ namespace Trabalho_Banco_De_Dados
 
                                 // Adicionando resumo da nota
                                 document.Add(new Paragraph("Resumo da Nota"));
-                                document.Add(new Paragraph($"Veículo: ID {veiculoId}"));
+                                document.Add(new Paragraph($"Veículo: {nomeVeiculo}"));
                                 document.Add(new Paragraph($"Valor da Venda: R$ {valor:F2}"));
                                 document.Add(new Paragraph($"Desconto Aplicado: {desconto}%"));
                                 document.Add(new Paragraph($"Valor Final: R$ {valorVenda:F2}"));
 
-                                // Espaço
-                                document.Add(new Paragraph("\n"));
-                                document.Add(new Paragraph("\n\n"));
+                                
                                 document.Add(new Paragraph("\n\n"));
                                 document.Add(new Paragraph("\n\n"));
                                 document.Add(new Paragraph("\n\n"));
@@ -151,6 +150,20 @@ namespace Trabalho_Banco_De_Dados
                                 Paragraph footer2 = new Paragraph("Estamos à disposição para atender você!");
                                 footer2.Alignment = Element.ALIGN_CENTER;
                                 document.Add(footer2);
+
+                                document.Add(new Paragraph("\n"));
+                                document.Add(new Paragraph("\n\n"));
+                                document.Add(new Paragraph("\n\n"));
+
+                                Paragraph footer4 = new Paragraph("__________________________________________");
+                                footer4.Alignment = Element.ALIGN_CENTER;
+                                document.Add(footer4);
+
+                                Paragraph footer3 = new Paragraph("Assinatura do vendedor");
+                                footer3.Alignment = Element.ALIGN_CENTER;
+                                document.Add(footer3);
+
+                                
 
                                 // Fechando o documento
                                 document.Close();
@@ -169,6 +182,8 @@ namespace Trabalho_Banco_De_Dados
                 MessageBox.Show($"Ocorreu um erro ao gerar a nota de venda: {ex.Message}");
             }
         }
+
+
 
 
 

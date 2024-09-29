@@ -168,6 +168,56 @@ namespace Trabalho_Banco_De_Dados
         {
 
         }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            {
+                if (dataGridView2.CurrentCell != null && dataGridView2.CurrentCell.RowIndex >= 0)
+                {
+                    var idCliente = Convert.ToInt32(dataGridView2.Rows[dataGridView2.CurrentCell.RowIndex].Cells[0].Value);
+
+                    DialogResult result = MessageBox.Show("Tem certeza que deseja excluir este cliente?", "Confirmação de exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        using (SqlConnection conn = new SqlConnection(Conn.StrCon))
+                        {
+                            conn.Open();
+                            SqlTransaction transaction = conn.BeginTransaction();
+
+                            try
+                            {
+                                SqlCommand commDelete = new SqlCommand("DELETE FROM Clientes WHERE ID_Cliente = @ID_Cliente", conn, transaction);
+                                commDelete.Parameters.Add("@ID_Cliente", SqlDbType.Int).Value = idCliente;
+
+                                commDelete.ExecuteNonQuery();
+                                transaction.Commit();
+
+                                MessageBox.Show("Cliente excluído com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                LoadData();
+                            }
+                            catch (SqlException ex)
+                            {
+                                transaction.Rollback();
+
+                                if (ex.Number == 50000) // Número do erro definido no RAISERROR na trigger
+                                {
+                                    MessageBox.Show(ex.Message, "Erro ao excluir cliente", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Ocorreu um erro inesperado ao tentar excluir o cliente.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Selecione um cliente para excluir.");
+                }
+            }
+            }
     }
  }
 
